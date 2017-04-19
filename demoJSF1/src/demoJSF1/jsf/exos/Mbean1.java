@@ -68,4 +68,15 @@ public class Mbean1 {
 		}
 	}
 	
+	public String testErreur()
+	{
+		if(data.length()==0)
+		{
+		return "erreur";
+		}
+		else
+			return goConditionnel();
+		
+	}
+	
 }
