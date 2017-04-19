@@ -15,6 +15,7 @@ public class Mbean1 {
 	String lesDeux = "";
 	
 	
+	
 	public String getLesDeux() {
 		return lesDeux = data + data2;
 	}
@@ -58,6 +59,13 @@ public class Mbean1 {
 		this.data = data;
 	}
 	
-	
+	public String goConditionnel(){
+		if(data.length()>10) {
+			return "jsf3result";		
+		}
+		else{
+			return "jsf3result2";
+		}
+	}
 	
 }
