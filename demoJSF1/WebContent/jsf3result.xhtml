@@ -10,11 +10,19 @@
 </head>
 <body>
 
-result 2 : data length >10
+result : data length >10
 <br/>
 Les deux: <h:outputText value = "#{mbean1.lesDeux}" />
 <br/>
-<h:form>
+<h:form id="laFormResult">
+	Saisie dataResult : <h:inputText value = "#{mbeanresult.dataResult}" />
+	
+	<h:commandButton type ="submit" value = "go" />
+
+	<h:outputText id="inputData3" value="3" />
+		<h:message for="inputData3" />
+		<br />
+		<br />
 <h:commandButton type ="submit" value = "retour" action="jsf3"/>
 </h:form>
 </body>

@@ -1,7 +1,9 @@
 package demoJSF1.jsf.exos;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name="mbean1", eager = true)
 @SessionScoped // permet de revenir à chaque fois sur le meme get sans nouvelle instanciation sur la meme session !
@@ -13,9 +15,21 @@ public class Mbean1 {
 	String data ="";
 	String data2 = "";
 	String lesDeux = "";
+	String civilite="";
 	
 	
 	
+	
+	
+	public String getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(String civilite) {
+		System.out.println("setting civilite " + civilite);
+		this.civilite = civilite;
+	}
+
 	public String getLesDeux() {
 		return lesDeux = data + data2;
 	}
@@ -30,6 +44,12 @@ public class Mbean1 {
 
 	public void setData2(String data2) {
 		this.data2 = data2;
+		FacesContext ctx = FacesContext.getCurrentInstance();
+		ctx.addMessage("laForm:inputData2", new FacesMessage("message InputData2 depuis le bean"));
+		ctx.addMessage("laForm:inputData3", new FacesMessage("MESSAGE INPUT DATA 3"));
+		ctx.addMessage("laForm:inputData4", new FacesMessage("MESSAGE INPUT DATA 4 !"));
+		ctx.addMessage(null, new FacesMessage("message for all depuis le bean"));
+		ctx.addMessage("laFormResult:inputData3", new FacesMessage("MESSAGE INPUT DATA 3"));
 	}
 
 	private int compteur = 0 ;
